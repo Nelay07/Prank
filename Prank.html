@@ -1,0 +1,81 @@
+<html>
+
+<head>
+  <style>
+    /* use a solid yellow background for the body */
+    body {
+      background-color: yellow;
+    }
+
+    #button {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 50px;
+      /* use a black color for the button */
+      background-color: black;
+      color: white;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+      transition: left 0.3s, top 0.3s;
+      border-radius: 25px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    #button:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    #button:active {
+      transform: translate(-50%, -50%) scale(0.9);
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    /* add a question element with some style and position */
+    #question {
+      position: absolute;
+      left: 10%;
+      top: 10%;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      font-size: 30px;
+      /* use a black color for the question */
+      color: black;
+    }
+
+    /* prevent the text from being selectable */
+    #button,
+    #question {
+      user-select: none;
+    }
+  </style>
+  <script>
+    function moveButton() {
+      // get the button element
+      var button = document.getElementById("button");
+      // get the window width and height
+      var windowWidth = window.innerWidth;
+      var windowHeight = window.innerHeight;
+      // generate a random position for the button
+      var randomX = Math.floor(Math.random() * (windowWidth - button.offsetWidth));
+      var randomY = Math.floor(Math.random() * (windowHeight - button.offsetHeight));
+      // set the button's left and top properties to the random position
+      button.style.left = randomX + "px";
+      button.style.top = randomY + "px";
+    }
+  </script>
+</head>
+
+<body>
+ 
+  <!-- add a question element in the HTML body -->
+  <div id="question">Are you a pig?</div>
+  <!-- change the button text to NO -->
+  <button id="button" onmousemove="moveButton()">NO</button>
+</body>
+
+</html>
